@@ -8,11 +8,25 @@ function App() {
   }
   const [location,setLocation] = useState("")
   const [weather,setWeather] = useState({})
+
+  const requiredData = (data) =>{
+    setWeather({name : data.location.name,
+                country : data.location.country,
+                condition : data.current.condition.text,
+                tempC : data.current.temp_c,
+                tempF : data.current.temp_f,
+                wind : data.current.wind_mph,
+                humidity : data.current.humidity,
+                fellsC : data.current.feelslike_c,
+                feelsF : data.current.feelslike_f
+    })
+  }
   const search = (e) =>{
       if(e.key !== "Enter") return
-      fetch(`${api.baseUrl}?Key=${api.key}&q=${location}`,{mode:"cors"})
+      fetch(`${api.baseUrl}?Key=${api.key}&q=${location}&aqi=yes`,{mode:"cors"})
       .then(res => res.json())
-      .then(result => console.log(result))
+      .then(result => requiredData(result))
+      .catch(error => console.log(error))
       setLocation("")
   }
   return (
