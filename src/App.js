@@ -28,7 +28,7 @@ function App() {
       fetch(`${api.baseUrl}?Key=${api.key}&q=${location}`,{mode:"cors"})
       .then(res => res.json())
       .then(result => requiredData(result))
-      .catch(error => console.log(error))
+      .catch(rej => alert("Location not found.Search must be in the form of [City], [City, State] or [City, Country]."))
       setLocation("")
   }
   window.onload = async () =>{
@@ -36,8 +36,8 @@ function App() {
         const fetched = await fetch(`${api.baseUrl}?Key=${api.key}&q=kochi`,{mode:"cors"})
         const res = await fetched.json()
         requiredData(res)
-    }catch(error){
-      console.log(error)
+    }catch(err){
+      alert("Location not found.Search must be in the form of [City], [City, State] or [City, Country].")
     }   
     setLocation("")
   }
@@ -46,7 +46,7 @@ function App() {
       <div className='searchBox'>
         <input value={location} onChange={(e) => setLocation(e.target.value)} onKeyDown={search} type="text" placeholder='Search Location...' className='search'/>
       </div>
-      <TopCard weather={weather}/>
+      <TopCard weather={weather} />
       <BottomCard weather={weather} />
     </div>
     

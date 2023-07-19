@@ -1,6 +1,6 @@
 import React from 'react'
 
-function BottomCard({weather}) {
+function BottomCard({weather,error}) {
     if(weather === null) return " "
     else 
     return (
