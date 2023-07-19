@@ -1,0 +1,136 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap');
+
+*,
+*::before,
+*::after{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html{
+    font-size: 10px;
+}
+
+body{
+    background-image: url("./assets/background/landscape-hill-minimalism-sky-green-hills-624749-wallhere.com.jpg");
+    background-size: cover;
+    background-position: center;
+    color: white;
+    font-family: 'Noto Sans', sans-serif;
+}
+
+.MainContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 100vh;
+    width: 100%;
+}
+
+.searchBox{
+    margin: 0 2rem;
+
+}
+
+.search{
+    width: 100%;
+    padding: 2.5rem;
+    outline: none;
+    border: none;
+    border-bottom-left-radius: 2rem;
+    border-bottom-right-radius: 2rem;
+    background: rgba(255, 255, 255, 0.4);
+    color: white;
+    font-size: 2rem;
+    box-shadow: 0px 4px 2px rgba(0, 0, 0, 0.4);
+}
+
+.search::placeholder{
+    color: rgb(0, 0, 0);
+}
+
+.weatherBox{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 3rem;
+    padding: 2rem;
+    position: relative;
+}
+
+.temperature{
+    font-size: 12rem;
+    font-weight: 900;
+    position: relative;
+    font-family: 'Nunito', sans-serif;
+}
+
+.temperature::after{
+    content: "°C";
+    font-size: 3rem;
+    position: absolute;
+    top: 0;
+    left: 13rem;
+}
+
+.generalInfo{
+    border-left: 2px solid white;
+    padding-left: 2rem;
+    overflow-wrap: break-word;
+}
+
+.generalInfo > .condition{
+    font-size: 2rem;
+    font-weight: 100;
+}
+
+.generalInfo > .location ,.country{ 
+    font-size: 3rem;
+    font-weight: 900;
+}
+
+.bottomBox{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-bottom: 4rem;
+}
+
+.feels,.humidity,.windSpeed{
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    font-size: 1.5rem;
+}
+
+.icon{
+    width: 5rem;
+    height: 5rem;
+}
+
+@media(max-width:500px){
+    html{
+        font-size: 50%;
+    }
+    .generalInfo > .condition{
+        font-size: 1.5rem;
+    }
+    .generalInfo > .location ,.country{ 
+        font-size: 2.5rem;
+    }
+    .weatherBox{
+        margin-top: -40rem;
+    }
+    .feels,.humidity,.windSpeed{
+        flex-direction: column;
+        gap: 2rem;
+        font-size: 2rem;
+        text-align: center;
+    }
+    body{
+        background-image: url(./assets/background/Moon.png);
+    }
+    
+}
