@@ -2,6 +2,8 @@ import { useState } from 'react';
 import './App.css';
 import TopCard from './TopCard';
 import BottomCard from './BottomCard';
+import ToggleSwitch from './ToggleSwitch';
+import { icon } from '@fortawesome/fontawesome-svg-core';
 
 function App() {
   const api = {
@@ -10,6 +12,12 @@ function App() {
   }
   const [location,setLocation] = useState("")
   const [weather,setWeather] = useState(null)
+  const [unit,setUnit] = useState("°C")
+
+  const toggleUnit = () =>{
+    if(unit === "°C") setUnit("°F")
+    else setUnit("°C")
+  }
 
   const requiredData = (data) =>{
     setWeather({name : data.location.name,
@@ -21,15 +29,18 @@ function App() {
                 humidity : data.current.humidity,
                 feelsC : data.current.feelslike_c,
                 feelsF : data.current.feelslike_f,
+                time : data.location.localtime,
+                icon : data.current.condition.icon
     })
   }
   const search = (e) =>{
       if(e.key !== "Enter") return
       fetch(`${api.baseUrl}?Key=${api.key}&q=${location}`,{mode:"cors"})
       .then(res => res.json())
-      .then(result => requiredData(result))
+      .then(result => {
+        requiredData(result) 
+        setLocation("")})
       .catch(rej => alert("Location not found.Search must be in the form of [City], [City, State] or [City, Country]."))
-      setLocation("")
   }
   window.onload = async () =>{
     try{
@@ -39,12 +50,12 @@ function App() {
     }catch(err){
       alert("Location not found.Search must be in the form of [City], [City, State] or [City, Country].")
     }   
-    setLocation("")
   }
   return (
     <div className="MainContainer">
-      <div className='searchBox'>
+      <div className='searchBoxContainer'>
         <input value={location} onChange={(e) => setLocation(e.target.value)} onKeyDown={search} type="text" placeholder='Search Location...' className='search'/>
+        <ToggleSwitch toggleUnit={toggleUnit} />
       </div>
       <TopCard weather={weather} />
       <BottomCard weather={weather} />

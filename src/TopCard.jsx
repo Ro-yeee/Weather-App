@@ -5,7 +5,7 @@ function TopCard({weather,error}) {
   else
   return (
     <div className='weatherBox'>
-        <h1 className='temperature'>{Math.round(weather.tempC)}</h1>
+        <h1 className='temperature' dataTemp="°C" >{Math.round(weather.tempC)}</h1>
         <div className='generalInfo'>
             <h1 className='condition'>{weather.condition}</h1>
             <h1 className='location'>{weather.name}</h1>

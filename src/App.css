@@ -29,31 +29,84 @@ body{
     width: 100%;
 }
 
-.searchBox{
+.searchBoxContainer{
     margin: 0 2rem;
+    display: flex;
 }
 
 .search{
-    width: 100%;
+    width: 80%;
     padding: 2.5rem;
     outline: none;
     border: none;
     border-bottom-left-radius: 2rem;
-    border-bottom-right-radius: 2rem;
     background: rgba(255, 255, 255, 0.4);
     color: white;
     font-size: 2rem;
     box-shadow: 0px 6px 4px rgba(0, 0, 0, 0.4);
     transition: 500ms ease-in-out;
+    font-family: 'Nunito', sans-serif;
 }
 
 .search::placeholder{
-    color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
 }
 
 .search:focus{
-    background: rgba(255,255,255,0.8);
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    
 }
+
+.toggleSwitchBox{
+    width: 20%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.4);
+    box-shadow: 0px 6px 4px rgba(0, 0, 0, 0.4);
+    border-left: 2px solid black;
+    border-bottom-right-radius: 2rem;
+}
+
+.checkbox {
+    opacity: 0;
+    position: absolute;
+}
+
+.checkbox-label {
+    background-color: #000000;
+    width: 50px;
+    height: 26px;
+    border-radius: 50px;
+    position: relative;
+    padding: 5px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 10px;
+}
+
+.units{
+    font-size: 1.4rem;
+    font-weight: 900;
+    font-family: 'Nunito', sans-serif;
+}
+
+.ball{
+    color:  #f1c40f;
+    width: 22px;
+    height: 22px;
+    position: absolute;
+    left: 2px;
+    top: 2px;
+    transition: transform 0.2s linear
+}
+
+.checkbox:checked + .checkbox-label .ball {
+    transform: translateX(24px);
+  }
 
 .weatherBox{
     display: flex;
@@ -70,10 +123,11 @@ body{
     font-weight: 900;
     position: relative;
     font-family: 'Nunito', sans-serif;
+    width: 15rem;
 }
 
 .temperature::after{
-    content: "°C";
+    content: attr(dataTemp);
     font-size: 3rem;
     position: absolute;
     top: 0;
