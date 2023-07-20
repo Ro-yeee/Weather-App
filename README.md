@@ -1,3 +1,6 @@
+<h2>Click below to visit the website 👇</h2>
+<a href ="https://ro-yeee.github.io/Weather-App/"><em>WEATHER-APP</em></a>
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
