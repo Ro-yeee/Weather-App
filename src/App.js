@@ -19,6 +19,13 @@ function App() {
     console.log(unit)
   }
 
+  const getTime = (data) =>{
+    const time = data.split(" ")[1].split(":")[0]
+    if(time==="5"||time==="6"||time==="7"||time==="8"||time==="9"||time==="10"||time==="11"||time==="12") return "Morning"
+    else if(time==="13"||time==="14"||time==="15"||time==="16"||time==="17"||time==="18"||time==="19") return "Evening"
+    else return "Night"
+  }
+
   const requiredData = (data) =>{
     setWeather({name : data.location.name,
                 country : data.location.country,
@@ -29,7 +36,7 @@ function App() {
                 humidity : data.current.humidity,
                 feelsC : data.current.feelslike_c,
                 feelsF : data.current.feelslike_f,
-                time : data.location.localtime,
+                time : getTime(data.location.localtime),
                 icon : data.current.condition.icon
     })
   }
