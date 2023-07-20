@@ -19,15 +19,15 @@ body{
 }
 
 .Morning{
-    background-image: linear-gradient(to bottom,rgba(0,0,0,0.2),rgba(0,0,0,0.5)),url("./assets/backgroundMobile/Morning.png");
+    background-image: url("./assets/background/Morning.jpg");
 }
 
 .Evening{
-    background-image: linear-gradient(to bottom,rgba(0,0,0,0.2),rgba(0,0,0,0.5)),url("./assets/backgroundMobile/Evening.png");
+    background-image: url("./assets/background/Evening.jpg");
 }
 
 .Night{
-    background-image: linear-gradient(to bottom,rgba(0,0,0,0.2),rgba(0,0,0,0.5)),url("./assets/backgroundMobile/Night.png");
+    background-image: url("./assets/background/Night.jpg");
 }
 
 .MainContainer{
@@ -53,7 +53,7 @@ body{
     border: none;
     border-bottom-left-radius: 2rem;
     background: rgba(255, 255, 255, 0.4);
-    color: white;
+    color: rgb(0, 0, 0);
     font-size: 2rem;
     box-shadow: 0px 6px 4px rgba(0, 0, 0, 0.4);
     transition: 500ms ease-in-out;
@@ -61,13 +61,17 @@ body{
 }
 
 .search::placeholder{
-    color: rgb(255, 255, 255);
+    color: rgb(0, 0, 0);
+    transition: 500ms ease-in-out;
 }
 
 .search:focus{
     background: rgba(0, 0, 0, 0.8);
     color: white;
-    
+}
+
+.search:focus::placeholder{
+    color: white;
 }
 
 .toggleSwitchBox{
@@ -135,7 +139,7 @@ body{
     font-weight: 900;
     position: relative;
     font-family: 'Nunito', sans-serif;
-    width: 15rem;
+    width: auto;
 }
 
 .temperature::after{
@@ -143,13 +147,14 @@ body{
     font-size: 3rem;
     position: absolute;
     top: 0;
-    left: 13rem;
+    left: auto;
 }
 
 .generalInfo{
     border-left: 2px solid white;
     padding-left: 2rem;
     overflow-wrap: break-word;
+    margin-left: 2rem;
 }
 
 .generalInfo > .condition{
