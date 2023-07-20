@@ -16,7 +16,6 @@ function App() {
   const toggleUnit = () =>{
     if(unit === "°C") setUnit("°F")
     else setUnit("°C")
-    console.log(unit)
   }
 
   const getTime = (data) =>{
@@ -36,7 +35,7 @@ function App() {
                 humidity : data.current.humidity,
                 feelsC : data.current.feelslike_c,
                 feelsF : data.current.feelslike_f,
-                time : getTime(data.location.localtime),
+                time :  getTime(data.location.localtime),
                 icon : data.current.condition.icon
     })
   }
@@ -59,7 +58,7 @@ function App() {
     }   
   }
   return (
-    <div className="MainContainer">
+    <div className={weather !== null ? weather.time === "Morning" ? "MainContainer Morning" : weather.time === "Evening" ? "MainContainer Evening" : "MainContainer Night": " "}>
       <div className='searchBoxContainer'>
         <input value={location} onChange={(e) => setLocation(e.target.value)} onKeyDown={search} type="text" placeholder='Search Location...' className='search'/>
         <ToggleSwitch toggleUnit={toggleUnit} />
