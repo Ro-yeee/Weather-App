@@ -3,7 +3,6 @@ import './App.css';
 import TopCard from './TopCard';
 import BottomCard from './BottomCard';
 import ToggleSwitch from './ToggleSwitch';
-import { icon } from '@fortawesome/fontawesome-svg-core';
 
 function App() {
   const api = {
@@ -17,6 +16,7 @@ function App() {
   const toggleUnit = () =>{
     if(unit === "°C") setUnit("°F")
     else setUnit("°C")
+    console.log(unit)
   }
 
   const requiredData = (data) =>{
@@ -57,8 +57,8 @@ function App() {
         <input value={location} onChange={(e) => setLocation(e.target.value)} onKeyDown={search} type="text" placeholder='Search Location...' className='search'/>
         <ToggleSwitch toggleUnit={toggleUnit} />
       </div>
-      <TopCard weather={weather} />
-      <BottomCard weather={weather} />
+      <TopCard weather={weather} unit={unit} />
+      <BottomCard weather={weather} unit={unit} />
     </div>
     
   );

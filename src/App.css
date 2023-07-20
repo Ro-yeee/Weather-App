@@ -35,7 +35,7 @@ body{
 }
 
 .search{
-    width: 80%;
+    width: 85%;
     padding: 2.5rem;
     outline: none;
     border: none;
@@ -59,7 +59,7 @@ body{
 }
 
 .toggleSwitchBox{
-    width: 20%;
+    width: 15%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -127,7 +127,7 @@ body{
 }
 
 .temperature::after{
-    content: attr(dataTemp);
+    content: attr(datatemp);
     font-size: 3rem;
     position: absolute;
     top: 0;
@@ -190,6 +190,12 @@ body{
     }
     body{
         background-image: url(./assets/background/Moon.png);
+    }
+    .search{
+        width: 80%;
+    }
+    .toggleSwitchBox{
+        width: 20%;
     }
     
 }
